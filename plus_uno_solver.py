@@ -55,11 +55,6 @@ class Plus_uno():
     def get_cost_of_actions(self, actions):
         return len(actions)
 
-    def good_actions(self, actions):
-        if len(actions) > 4 and actions[-4:] != [(self.goal-1, 1)] * 4:
-            return False
-        return True
-
 class Plus_uno2():
     def __init__(self, goal):
         self.goal = goal
@@ -76,7 +71,6 @@ class Plus_uno2():
         values.sort()
 
         successors = []
-        states = set()
 
         for val in values:
             for val2 in values:
@@ -113,11 +107,6 @@ class Plus_uno2():
     def get_cost_of_actions(self, actions):
         return len(actions)
 
-    def good_actions(self, actions):
-        if len(actions) > 4 and actions[-4:] != [(self.goal-1, 1)] * 4:
-            return False
-        return True
-
 
 def null_heuristic(state, problem=None):
     return 0
@@ -125,7 +114,6 @@ def null_heuristic(state, problem=None):
 # number of things not satisfying goal state / 2
 def f_heuristic(state, problem):
     not_matching = len(filter(lambda x: x != problem.goal, state))
-
     return not_matching / 2
 
 
@@ -166,9 +154,9 @@ def main():
         print 'goal: {}'.format(i)
         problem = Plus_uno2(i)
         path = aStarSearch(problem, heuristic=f_heuristic)
+        # add the last 4 moves to the solution
         path += [(i-1, 1)] * 4
         print 'path: {}'.format(path)
-
 
 if __name__ == '__main__':
     main()
