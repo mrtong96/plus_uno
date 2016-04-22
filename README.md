@@ -1,6 +1,9 @@
 ### Overview ###
 
-This is a solver for the game plus uno. This code uses A* search algorithm to solve the game. 
+This is a solver for the game plus uno. This code uses A* search algorithm to solve the game.
+The game can be found at:
+http://marioqwe.github.io
+Solutions to the first few levels can be found in sample_solutions.txt. The soltutions are a list of moves (tuples) in the form of (click this number first, click this number second).
 
 ### Usage ###
 
