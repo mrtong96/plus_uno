@@ -1,7 +1,5 @@
 
 import Queue
-import time
-import math
 
 class Plus_uno():
     def __init__(self, goal):
